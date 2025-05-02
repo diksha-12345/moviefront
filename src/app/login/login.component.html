@@ -1,0 +1,52 @@
+<style>
+    body {
+      background-color: #f8f9fa;
+    }
+  
+    .login-container {
+      max-width: 400px;
+      margin: 100px auto;
+      padding: 20px;
+      background: #dbd3d6;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(157, 17, 40, 0.2);
+    }
+  
+    .navbar-nav {
+      margin-left: auto;
+    }
+  </style>
+  
+  <div class="container">
+    <div class="login-container">
+      <h3 class="text-center">Login</h3>
+      <form #loginForm="ngForm" (ngSubmit)="submitdata()">
+        
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter email"
+                 required name="email" [(ngModel)]="r.email" #email="ngModel">
+          <div class="text-danger" *ngIf="email.invalid && email.touched">
+            <div *ngIf="email.errors?.['required']">Email is required.</div>
+            <div *ngIf="email.errors?.['email']">Invalid email format.</div>
+          </div>
+        </div>
+  
+        <!-- Password -->
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Enter password"
+                 required minlength="6" name="ps" [(ngModel)]="r.password" #ps="ngModel">
+          <div class="text-danger" *ngIf="ps.invalid && ps.touched">
+            <div *ngIf="ps.errors?.['required']">Password is required.</div>
+            <div *ngIf="ps.errors?.['minlength']">Password must be at least 6 characters.</div>
+          </div>
+        </div>
+  
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">Login</button>
+      </form>
+    </div>
+  </div>
+  

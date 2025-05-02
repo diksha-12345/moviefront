@@ -1,0 +1,76 @@
+<div class="d-flex justify-content-center align-items-center min-vh-100 bg-light">
+  <div class="card shadow-lg p-3" style="width: 100%; max-width: 450px;">
+    <div class="card-header bg-primary text-white text-center">
+      <h5>User Registration</h5>
+    </div>
+    <div class="card-body">
+      <form class="row g-3" #registerForm="ngForm" (ngSubmit)="submitdata()">
+
+        <!-- Full Name -->
+        <div class="mb-2">
+          <label for="name" class="form-label">Full Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter your full name"
+                 required name="nm" [(ngModel)]="r.name" #nm="ngModel">
+          <div class="text-danger" *ngIf="nm.invalid && nm.touched">Full Name is required.</div>
+        </div>
+
+        <!-- Email -->
+        <div class="mb-2">
+          <label for="email" class="form-label">Email Address</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter your email"
+                 required name="em" [(ngModel)]="r.email" #em="ngModel">
+          <div class="text-danger" *ngIf="em.invalid && em.touched">
+            <div *ngIf="em.errors?.['required']">Email is required.</div>
+            <div *ngIf="em.errors?.['email']">Invalid email format.</div>
+          </div>
+        </div>
+
+        <!-- Phone -->
+        <div class="mb-2">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number"
+                 required pattern="^[0-9]{10}$" name="mob" [(ngModel)]="r.mobileno" #mob="ngModel">
+          <div class="text-danger" *ngIf="mob.invalid && mob.touched">
+            <div *ngIf="mob.errors?.['required']">Phone number is required.</div>
+            <div *ngIf="mob.errors?.['pattern']">Phone number must be 10 digits.</div>
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="mb-2">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Create a password"
+                 required minlength="6" name="ps" [(ngModel)]="r.password" #ps="ngModel">
+          <div class="text-danger" *ngIf="ps.invalid && ps.touched">
+            <div *ngIf="ps.errors?.['required']">Password is required.</div>
+            <div *ngIf="ps.errors?.['minlength']">Password must be at least 6 characters.</div>
+          </div>
+        </div>
+
+        <!-- Gender -->
+        <div class="mb-2">
+          <label for="gender" class="form-label">Gender</label>
+          <select class="form-select" id="gender" required [(ngModel)]="r.gender" name="gender" #gender="ngModel">
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+          <div class="text-danger" *ngIf="gender.invalid && gender.touched">Gender selection is required.</div>
+        </div>
+
+        <!-- Terms Checkbox -->
+        <div class="mb-2 form-check">
+          <input type="checkbox" class="form-check-input" id="terms" required name="terms" ngModel #terms="ngModel">
+          <label class="form-check-label" for="terms">I agree to the Terms & Conditions</label>
+          <div class="text-danger" *ngIf="terms.invalid && terms.touched">You must agree to continue.</div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

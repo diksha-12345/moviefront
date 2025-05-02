@@ -1,0 +1,24 @@
+.carousel-img {
+    height: 500px;         /* Set desired height */
+    object-fit: cover;     /* Ensures images don't stretch */
+    border-radius: 23px;   /* Optional: rounded corners */
+  }
+  
+  .carousel-inner {
+    max-height: 500px;     /* Limit carousel height */
+  }
+  
+  @media (max-width: 768px) {
+    .carousel-img {
+      height: 500px;       /* Smaller height for mobile */
+    }
+  }
+  .carousel-img {
+    width: 400%;
+    height: auto;           /* Allow natural height */
+    max-height: 600px;      /* Limit max height */
+    object-fit: contain;    /* Show full image without cutting */
+    border-radius: 18px;
+  }
+  
+  

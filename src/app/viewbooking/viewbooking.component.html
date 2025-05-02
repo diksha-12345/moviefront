@@ -1,0 +1,27 @@
+<div class="container">
+    <h2 class="text-center mb-4">Your Booking History</h2>
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>bookingId</th>
+          <th>name</th>
+          <th>Movie</th>
+          <th>Date</th>
+          <th>Show Time</th>
+          <th>Seats</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let b of barr">
+          <td>{{b.id}}</td>
+          <td>{{ b.name }}</td>
+          <td>{{ b.entermovie }}</td>
+          <td>{{ b.showdate }}</td>
+          <td>{{ b.time }}</td>
+          <td>{{ b.seats }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

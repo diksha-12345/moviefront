@@ -1,0 +1,9 @@
+.navbar-gray {
+    background-color: #6c757d !important; /* Medium gray */
+}
+.navbar-light-gray {
+    background-color: #d6d6d6 !important; /* Light gray */
+}
+.navbar-light-gray a {
+    color: black !important; /* Keep text readable */
+}

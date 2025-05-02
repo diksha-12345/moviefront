@@ -1,0 +1,13 @@
+.container {
+  max-width: 500px;
+  margin: auto;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+.btn-booked {
+  pointer-events: none;
+  opacity: 0.6;
+}

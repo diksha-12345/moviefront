@@ -1,0 +1,85 @@
+<div class="container mt-4">
+    <h2 class="text-center mb-3">🎬 Book Your Movie</h2>
+  
+    <!-- Seat Availability Stats -->
+    <div class="text-center mb-4">
+      <h5>Total Seats: <span class="text-primary">{{ getTotalSeats() }}</span></h5>
+      <h5>Booked Seats: <span class="text-danger">{{ getBookedSeatsCount() }}</span></h5>
+      <h5>Available Seats: <span class="text-success">{{ getAvailableSeatsCount() }}</span></h5>
+    </div>
+  
+    <form (ngSubmit)="submitData()" class="p-4 shadow rounded bg-light">
+  
+      <div class="mb-3">
+        <label class="form-label">BookingId</label>
+        <input type="text" class="form-control" placeholder="Enter BookingId" required [(ngModel)]="b.id" name="bookingid">
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" class="form-control" placeholder="Enter Username" required [(ngModel)]="b.name" name="name">
+      </div>
+  
+      
+      <div class="mb-3">
+  <label class="form-label">Movie Name</label>
+  <select class="form-select" required [(ngModel)]="b.entermovie" name="entermovie">
+    <option value="">-- Select Movie --</option>
+    <option value="Badrinath Ki Dulhania (2017)">Badrinath Ki Dulhania (2017)</option>
+    <option value="HanuMan (2024)">HanuMan (2024)</option>
+    <option value="Bhoot Police (2021)">Bhoot Police (2021)</option>
+    <option value="Chhaava (2024)">Chhaava (2024)</option>
+    <option value="Pathaan (2023)">Pathaan (2023)</option>
+    <option value="Do Patti (2023)">Do Patti (2023)</option>
+    <option value="Sikandar (2025)">Sikandar (2025)</option>
+    <option value="Pushpa 2: The Rule (2024)">Pushpa 2: The Rule (2024)</option>
+    <option value="Bajrangi Bhaijaan (2015)">Bajrangi Bhaijaan (2015)</option>
+    <option value="Shaadi Mein Zaroor Aana (2017)">Shaadi Mein Zaroor Aana (2017)</option>
+    <option value="Shershaah (2021)">Shershaah (2021)</option>
+    <option value="Mrs (2024)">Mrs (2024)</option>
+  </select>
+</div>
+
+      
+      <div class="mb-3">
+        <label class="form-label">Show Date</label>
+        <input type="date" class="form-control" required [(ngModel)]="b.showdate" name="showdate">
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Show Time</label>
+        <input type="time" class="form-control" required [(ngModel)]="b.time" name="time">
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Selected Seats</label>
+        <input type="text" class="form-control" placeholder="Selected seats" [(ngModel)]="b.seats" name="seats" readonly>
+      </div>
+  
+      <!-- ✅ Seat Selection Buttons -->
+      <div class="text-center">
+        <div class="d-flex justify-content-center flex-wrap">
+          <div *ngFor="let seat of seatsArray">
+            <input type="checkbox" class="btn-check" [id]="seat.id" [disabled]="seat.booked"
+                   (change)="toggleSeat(seat.label, $event)">
+            <label class="btn m-1"
+                   [ngClass]="{
+                     'btn-outline-primary': !seat.booked,
+                     'btn-danger': seat.booked
+                   }"
+                   [for]="seat.id">
+              {{ seat.label }}
+            </label>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Selected Count -->
+      <div class="text-center mt-2">
+        <strong>Selected Seats Count: {{ selectedSeats.length }}</strong>
+      </div>
+  
+      <button type="submit" class="btn btn-primary w-100 mt-4">🎟️ Submit Booking</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid" [ngSwitch]="usertype">
+    
+    <!-- Guest Menu -->
+    <ul class="navbar-nav ms-auto" *ngSwitchCase="'guest'">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/register">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/adminlog">Admin Login</a>
+      </li>
+    </ul>
+
+    <!-- User Menu -->
+    <ul class="navbar-nav ms-auto" *ngSwitchCase="'user'">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/viewmovie">Movies</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/bookmovie">Book Movie</a>
+      </li>
+      
+      
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/cancelbooking">Cancel Booking</a>
+      </li>
+     
+      <li class="nav-item">
+        <a class="nav-link" (click)="ulogout()">Logout</a>
+      </li>
+      
+    </ul>
+
+    <!-- Admin Menu -->
+    <ul class="navbar-nav ms-auto" *ngSwitchCase="'admin'">
+     
+     
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/viewbooking">View Bookings</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="alogout()">Logout</a>
+      </li>
+    </ul>
+
+  
