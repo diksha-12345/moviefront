@@ -1,0 +1,28 @@
+
+<div class="container">
+    <h2 class="text-center mb-4">Your Cancel Booking History</h2>
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>cancel Id</th>
+         
+          <th>Username</th>
+    
+          <th>cancel Date</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of carr">
+          <td>{{c.cancelid}}</td>
+
+          <td>{{ c.username }}</td>
+
+          <td>{{ c.cancelDate }}</td>
+         
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

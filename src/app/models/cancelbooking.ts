@@ -1,9 +1,8 @@
 
 export class Cancelbooking {
-    cancelID:any
-    bookingID:any
+    cancelid:any
+    
     username:any
-    EmailAddress:any
     cancelDate:any
 
 

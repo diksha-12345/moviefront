@@ -3,24 +3,18 @@
     <form (ngSubmit)="submitdata()">
         <div class="mb-3">
             <label for="cancelId" class="form-label">Cancel ID</label>
-            <input type="text" class="form-control" id="cancelID" name="cancelID" required [(ngModel)]="c.cancelID">
+            <input type="text" class="form-control" id="cancelID" name="cancelID" required [(ngModel)]="c.cancelid">
         </div>
-        <div class="mb-3">
-            <label for="bookingId" class="form-label">Booking ID</label>
-            <input type="text" class="form-control" id="bookingID" name="bookingID" required [(ngModel)]="c.bookingID">
-        </div>
+
         <div class="mb-3">
             <label for="userName" class="form-label">UserName</label>
             <input type="text" class="form-control" id="username" name="username" required [(ngModel)]="c.username">
         </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email Address</label>
-            <input type="email" class="form-control" id="EmailAddress" name="EmailAddress" required [(ngModel)]="c.EmailAddress">
-        </div>
+       
         <div class="mb-3">
             <label for="cancelDate" class="form-label">Cancel Date</label>
             <input type="datetime-local" class="form-control" id="cancelDate" name="cancelDate" required [(ngModel)]="c.cancelDate">
         </div>
         <button type="submit" class="btn btn-danger">Cancel Booking</button>
     </form>
-</div>
+

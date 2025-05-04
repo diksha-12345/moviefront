@@ -13,6 +13,7 @@ import { Logout2Component } from './logout2/logout2.component';
 
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { BookmovieComponent } from './bookmovie/bookmovie.component';
+import { ViewcancelbookingComponent } from './viewcancelbooking/viewcancelbooking.component';
 
 
 
@@ -35,6 +36,7 @@ export const routes: Routes = [
     { path: 'viewbooking', component: ViewbookingComponent },
     { path: 'logout2', component: Logout2Component },
     
+    {path:'viewcancelbooking',component:ViewcancelbookingComponent},
 
     // Redirect unknown routes
     { path: '**', redirectTo: '', pathMatch: 'full' }  
